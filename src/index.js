@@ -24,10 +24,11 @@ mongoose
   .catch((err) => console.log(err.message));
 
 app.use(
-  bodyParser.urlencoded({
+  express.urlencoded({
     extended: true,
   })
 );
+app.use(express.json());
 app.use(cors());
 app.use(function (req, res, next) {
   res.header("application/json;charset=UTF-8");

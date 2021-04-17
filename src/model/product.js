@@ -1,4 +1,6 @@
 const mongoose = require("mongoose");
+const slug = require("mongoose-slug-generator");
+mongoose.plugin(slug);
 const Schema = mongoose.Schema;
 
 const productSchema = new Schema({
@@ -22,6 +24,11 @@ const productSchema = new Schema({
   },
   image: {
     type: "string",
+  },
+  slug: {
+    type: "string",
+    slug: "name",
+    unique: true,
   },
 });
 
